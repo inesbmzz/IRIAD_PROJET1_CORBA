@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .title {
+            text-align: center;
+            margin: 10px 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form {
+            max-width: 500px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form label {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            cursor: pointer;
+            background-color: #3658c0;
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #1e4c91;
+        }
+
+        img {
+            width: 75%;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Prédiction des résultats du Bac</h1>
+    <img src="/static/exam.png" alt="Image d'examen" style="width: 100px; margin-bottom: 10px;">
+    <form class="form" action="/predict" method="post">
+        <label for="T1">La moyenne du premier trimestre :</label>
+        <input type="number" name="T1" id="T1" min="0" max="20">
+
+        <label for="T2">La moyenne du deuxième trimestre :</label>
+        <input type="number" name="T2" id="T2" min="0" max="20">
+
+        <label for="T3">La moyenne du troisième trimestre :</label>
+        <input type="number" name="T3" id="T3" min="0" max="20">
+
+        <input class="btn" type="submit" value="Prédire">
+    </form>
+
+    {% if prediction %}
+    <h1 class="title">Résultat</h1>
+    <p style="text-align: center; margin: 10px;">
+        La prédiction de la note du Bac : {{ prediction }}
+    </p>
+    {% endif %}
+
+    {% if prediction_path %}
+    <img src="/static/tree.png" alt="Arbre de décision">
+    {% endif %}
+
+</body>
+
+</html>

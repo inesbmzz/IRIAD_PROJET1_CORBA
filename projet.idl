@@ -1,0 +1,7 @@
+module M {
+  interface Bac {
+    boolean startPredict();
+    void getData(in string path); 
+    float predict(in float note1, in float note2, in float note3);
+  };
+};

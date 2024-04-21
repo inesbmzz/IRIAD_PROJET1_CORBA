@@ -1,0 +1,176 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .form {
+            display: flex;
+            max-width: 500px;
+            margin: auto;
+            flex-direction: column;
+            /* align-items: center; */
+        }
+
+        .form * {
+            padding: 10px;
+        }
+
+        .btn {
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #3658c0;
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+            border: none;
+        }
+        #dataset{
+            align-self: center;
+        }
+        img {
+            margin: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Prédiction des résultats du Bac</h1>
+    <img  style="width: 10%;" src="/static/exam.png" alt="">
+    <form class="form" enctype=multipart/form-data action="/thankYou" method="post">
+        <label for="data">Fichier des resultats des éléves:</label>
+        <input  type="file" name="dataset" id="dataset"> 
+
+        <input class="btn" type="submit" value="SUBMIT">
+    </form>
+
+    {% if start_predict %}
+
+    <h1 class="title">La platforme des prédictions est ouverte</h1>
+    <form class="form" action="/predict">
+        <input class="btn" type="submit" value="Aller à prédire">
+    </form>
+    {% endif %}
+
+</body>
+
+</html>
+ -->
+
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .form {
+            max-width: 500px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form label {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .form input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            cursor: pointer;
+            background-color: #3658c0;
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background-color: #1e4c91;
+        }
+        #texte{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title">Collecte des données</h1>
+    <img src="/static/exam.png" alt="Image d'examen" style="width: 100px; margin-bottom: 20px;">
+    <form class="form" enctype="multipart/form-data" action="/merci" method="post">
+        <label for="dataset">Veuillez déposer un fichier CSV contenant les notes de vos éléves :</label>
+        <input type="file" name="dataset" id="dataset">
+
+        <input class="btn" type="submit" value="SOUMETTRE">
+    </form>
+
+    <!-- {% if start_predict %}
+    <h1 class="title">Nouveautés</h1>
+    <p id="texte">La plateforme des prédictions est désormais ouverte</p>
+    <form class="form" action="/predict">
+        <input class="btn" type="submit" value="Aller à prédire">
+    </form>
+    {% endif %} -->
+
+</body>
+
+</html>
+
